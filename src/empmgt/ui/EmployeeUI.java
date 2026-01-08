@@ -5,11 +5,20 @@
  */
 package empmgt.ui;
 
+import static com.oracle.jrockit.jfr.ContentType.Address;
+import static javax.xml.ws.soap.MTOMFeature.ID;
+import model.Employee;
+
 /**
  *
  * @author Raisul Islam
  */
 public class EmployeeUI extends javax.swing.JFrame {
+    private Object FirstName;
+    private Object LastName;
+    private Object Design;
+    private Object Department;
+    private Object Salary;
 
     /**
      * Creates new form EmployeeUI
@@ -82,8 +91,10 @@ public class EmployeeUI extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
         jTextArea1.setText("Employee Information");
+        jTextArea1.setWrapStyleWord(true);
         jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -218,15 +229,22 @@ public class EmployeeUI extends javax.swing.JFrame {
     }//GEN-LAST:event_idActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        String id = this.id.getText();
-        String fName = this.id.getText();
-        String id = this.id.getText();
-        String id = this.id.getText();
-        String id = this.id.getText();
-        String id = this.id.getText();
-        String id = this.id.getText();
-        String id = this.id.getText();
-        System.out.println("Hello Advance Java");
+        Employee e = new Employee();
+        e.setId(Integer.valueOf(ID.getText()));
+        e.setFname(FirstName.getText());
+        e.setLname(LastName.getText());
+        e.setDesig(Design.getText());
+        e.setDept(Department.getText());
+        e.setSalary(Double.valueOf(Salary.getText()));
+        e.setAge(Integer.valueOf(Age.getText()));
+        e.setAddr(Address.getText());
+        
+        EmployeeController ec = new EmployeeController();
+        Employee emp = ec.create(e);
+        
+        lblID.setText(String.valueOf(emp.getId()));
+        lblName.setText(emp.getFname() + " " + emp.getLname());
+        lblSalary.setText(String.valueOf(emp.getSalary()));
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void id1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id1ActionPerformed

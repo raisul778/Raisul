@@ -12,8 +12,8 @@ package Jan06;
 public class Test {
     static final Test LOCK = new Test();
     public static void main(String[] args) throws InterruptedException {
-        java.lang.Thread tick = new java.lang.Thread(new X());
-        java.lang.Thread tock = new java.lang.Thread(new Y());
+        java.lang.Thread tick = new java.lang.Thread((Runnable) new X());
+        java.lang.Thread tock = new java.lang.Thread((Runnable) new Y());
         tick.start();
         tock.start();
         tick.join();
@@ -21,6 +21,10 @@ public class Test {
     }
 
     void x() {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+
+    void y() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
