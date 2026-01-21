@@ -19,6 +19,7 @@ public class EmployeeUI extends javax.swing.JFrame {
     private Object Design;
     private Object Department;
     private Object Salary;
+    private Object Age;
 
     /**
      * Creates new form EmployeeUI
@@ -230,21 +231,13 @@ public class EmployeeUI extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         Employee e = new Employee();
-        e.setId(Integer.valueOf(ID.getText()));
-        e.setFname(FirstName.getText());
-        e.setLname(LastName.getText());
-        e.setDesig(Design.getText());
-        e.setDept(Department.getText());
-        e.setSalary(Double.valueOf(Salary.getText()));
-        e.setAge(Integer.valueOf(Age.getText()));
-        e.setAddr(Address.getText());
+        int ch;
+        
         
         EmployeeController ec = new EmployeeController();
         Employee emp = ec.create(e);
         
-        lblID.setText(String.valueOf(emp.getId()));
-        lblName.setText(emp.getFname() + " " + emp.getLname());
-        lblSalary.setText(String.valueOf(emp.getSalary()));
+        
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void id1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id1ActionPerformed
