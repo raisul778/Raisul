@@ -122,7 +122,7 @@ public class RegistrationForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Please put Username > 2");
             textUsername.requestFocus();
         } else {
-            String password = textpassword.getText();
+            String password = textPassword.getText();
             User u = new User();
             u.setUsername(username);
             u.setPassword(password);
@@ -130,7 +130,7 @@ public class RegistrationForm extends javax.swing.JFrame {
             if(status>0){
                 JOptionPane.showMessageDialog(rootPane, "User saved successfully");
                 textUsername.setText("");
-                textpassword.setText("");
+                textPassword.setText("");
             }else{
                 JOptionPane.showMessageDialog(rootPane, "User couldn't saved!");
             }

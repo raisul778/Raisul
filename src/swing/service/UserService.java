@@ -23,7 +23,7 @@ public class UserService {
         try {
             con = DBConnection.getConnection();
             stmt = con.createStatement();
-            String sql = "INSERT INTO users (username, password) values ('"+ u.getUsername() +"', '"+ u.getPassword() +"')";
+            String sql = "INSERT INTO users (username, password) Values ('"+ u.getUsername() +"', '"+ u.getPassword() +"')";
             return stmt.executeUpdate(sql);
         } catch (Exception e) {
             return 0;
